@@ -8,7 +8,7 @@ console.log(
 
 $(document).ready(function(e){
 	// lets clean tumbler's payload
-	e.cancelBubble();
+	e.stopPropagation();
 	['body'].map(function(root){
 		['iframe','script','noscript'].map(function(tag){$(root).children(tag).remove()});
 		$(root).html($(root).html().replace(/<!--[^>]*>/g,''))
