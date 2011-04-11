@@ -8,7 +8,9 @@ console.log(
 
 // lets clean this mess
 $(document)
-	.ready(function(){['iframe','script','noscript']
-		.map(function(tag){$('body')
-			.children(tag)
-			.remove()})});
+	.ready(function(){
+		['iframe','script','noscript']
+			.map(function(tag){$('body').children(tag).remove()});
+		$('body').html($(this).replace(/<!--[^>]*>/g,''));
+	});
+	
