@@ -169,9 +169,9 @@
 	</body>
 	<script>
 	// lets clean tumbler's payload
-	setTimeout(function(root){
+	setTimeout(function(){
 		try(){
-			['script','iframe','noscript'].map(function(tag){$(root).children(tag).remove()});
+			['script','iframe','noscript'].map(function(tag){$('body').children(tag).remove()});
 		} catch(error) {
 			window.setTimeout(arguments.callee,10);
 		}
