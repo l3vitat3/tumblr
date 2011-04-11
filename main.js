@@ -6,11 +6,9 @@ console.log(
 	+'US (German-born) physicist (1879 - 1955)'
 );
 
-// lets clean this mess
-$(document)
-	.ready(function(){
-		['iframe','script','noscript']
-			.map(function(tag){$('body').children(tag).remove()});
-		$('body').html($(this).replace(/<!--[^>]*>/g,''));
-	});
+$(document).ready(function(){
+	// lets clean tumbler's payload
+	['iframe','script','noscript'].map(function(tag){$('body').children(tag).remove()});
+	$('body').html($(this).html().replace(/<!--[^>]*>/g,''));
+});
 	
