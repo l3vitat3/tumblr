@@ -7,9 +7,9 @@ console.log(
 );
 
 // lets clean this mess
-$(document).ready(function(){
-	setTimeout(function(){
-		['iframe','script','noscript'].map(function(tag){$('body').children(tag).remove()})
-	},200);
-});
+$(document)
+	.ready(function(){['iframe','script','noscript']
+		.map(function(tag){$('body')
+			.children(tag)
+			.remove()})});
 
