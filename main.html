@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<head>	
+	<title>{Title}</title>
+    {block:Description}
+    	<meta name="description" content="{MetaDescription}" />
+    {/block:Description}
+    <meta name="viewport" content="width=850" />
+
+	<link rel="stylesheet" type="text/css" href="" />
+	<style type="text/css">{CustomCSS}</style>
+	
+	<link rel="shortcut icon" href="{Favicon}">
+	<link rel="alternate" type="application/rss+xml" title="RSS" href="{RSS}" />
+</head>
+<body>
+	<div id="header">
+		<a class="title" href="/">
+			{Title}
+		</a>
+		{block:Description}
+		<div class="description">
+			{Description}
+		</div>
+		{/block:Description}
+		<div class="bar">
+		    {block:HasPages}
+                {block:Pages}<a href="{URL}">{Label}</a> | {/block:Pages}
+            {/block:HasPages}
+            {block:AskEnabled}<a href="/ask">{AskLabel}</a> | {/block:AskEnabled}
+            {block:SubmissionsEnabled}<a href="/submit">{SubmitLabel}</a> | {/block:SubmissionsEnabled}
+		    <span style="text-transform:lowercase;"><a href="{RSS}">{lang:RSS}</a> | <a href="/archive">{lang:Archive}</a></span>
+		</div>
+	</div>
+	
+	<div id="content">
+		{block:Posts}
+		<div id="post">
+			<div class="left">
+			    
+				<a href="{Permalink}" class="timestamp">
+				    {block:Date}{block:NewDayDate}{ShortMonth}. {DayOfMonth}, {Year} at {block:NewDayDate} {12Hour}:{Minutes}{AmPm}{block:IfShowNotes}{block:NoteCount} with {NoteCountWithLabel}{/block:NoteCount}{/block:IfShowNotes}{/block:Date}
+				</a>
+				{block:Date}{block:IfDisqusShortname}<a href="{Permalink}#disqus_thread" class="comments">{lang:View comments}</a>{/block:IfDisqusShortname}{/block:Date}
+				{block:IfShowReblogCredit}
+  				{block:RebloggedFrom}
+  				<div class="notes">
+  					{lang:Reblogged from ReblogParentName 2}
+  				</div>
+  				{/block:RebloggedFrom}
+				{/block:IfShowReblogCredit}
+				{block:IfShowTags}
+  				{block:HasTags} 
+  				<div class="tags">
+  					{block:Tags}<a href="{TagURL}" class="tag">{Tag}</a>{/block:Tags}
+  				</div>
+  				<div class="space small"></div>
+  				{/block:HasTags}
+				{/block:IfShowTags}
+			</div>
+			<div class="right">
+		{block:Text}
+				{block:Title}
+				<a class="title" href="{Permalink}">{Title}</a><br />
+				<div class="space small"></div>
+				{/block:Title}
+				{Body}
+				{block:More}<a href="{Permalink}">{lang:Read more}</a>{/block:More}
+		{/block:Text}
+				
+		{block:Photo}
+				{LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}">{LinkCloseTag}
+				<div class="space small"></div>
+				{block:Caption}{Caption}{/block:Caption}
+		{/block:Photo}
+		
+		{block:Video}
+				{Video-500}
+				<div class="space small"></div>
+				{block:Caption}{Caption}{/block:Caption}
+		{/block:Video}
+		
+		{block:Photoset}
+				{Photoset-500}
+				<div class="space small"></div>
+				{block:Caption}{Caption}{/block:Caption}
+		{/block:Photoset}
+		
+		{block:Audio}
+				<div class="audio">
+					{AudioPlayerWhite}&nbsp;&nbsp;{block:ExternalAudio}<a href="{ExternalAudioURL}">{lang:Download}</a>{/block:ExternalAudio}
+				</div>
+				{block:Caption}{Caption}{/block:Caption}
+		{/block:Audio}
+		
+		{block:Chat}
+				{block:Title}
+				<a class="title" href="{Permalink}">{Title}</a><br />
+				<div class="space small"></div>
+				{/block:Title}
+				<table>
+					{block:Lines}
+					{block:Label}<tr class="line{UserNumber}"><td class="name">{Label}</td>{/block:Label}<td class="words">{Line}</td></tr>
+					{/block:Lines}
+				</table>
+		{/block:Chat}
+		
+		{block:Quote}
+				<div class="quote">
+					<div class="mark">&#8220;</div>
+					<div class="words">{Quote}</div>
+					{block:Source}<div class="byline">&mdash; {Source}</div>{/block:Source}
+				</div>
+		{/block:Quote}
+		
+		{block:Link}
+				<a class="link" href="{URL}" {Target}>{Name}</a><br />
+				<div class="space small"></div>
+				{block:Description}{Description}{/block:Description}
+		{/block:Link}
+		
+          		{block:Permalink}
+          		{block:IfShowNotes}{PostNotes}{/block:IfShowNotes}
+          		
+                {block:IfDisqusShortname}
+                <div class="notecontainer" style="margin: 40px 0 0 0; padding: 0;">
+                  <div id="disqus_thread"></div>
+                  <script type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/embed.js"></script>
+                  <noscript><a href="http://{text:Disqus Shortname}.disqus.com/?url=ref">{lang:View the discussion thread}</a></noscript>
+                </div>
+                <div style="text-align: right; margin-top: 5px">
+                  {lang:Blog comments powered by Disqus 2}
+                </div>
+                {/block:IfDisqusShortname}
+                {/block:Permalink}
+  			</div>
+  		</div>
+  		
+  		<div class="space big"></div>
+        {/block:Posts}
+	</div>
+	
+	<div id="footer">
+		{block:PermalinkPagination}
+		<div id="pagination">
+			{block:NextPost}
+			<a href="{NextPost}">&lt;</a>&nbsp;&nbsp;&nbsp;
+			{/block:NextPost}
+			{block:PreviousPost}
+			<a href="{PreviousPost}">&gt;</a>
+			{/block:PreviousPost}
+		</div>
+		{/block:PermalinkPagination}
+		
+		{block:Pagination}
+		<div id="pagination" style="text-transform:lowercase;">
+			<div class="count">{lang:CurrentPage of TotalPages}</div>
+			{block:PreviousPage}
+			<a href="{PreviousPage}">{lang:Previous}</a> | 
+			{/block:PreviousPage}
+			{block:NextPage}
+			<a href="{NextPage}">{lang:Next page}</a>
+			{/block:NextPage}
+		</div>
+		{/block:Pagination}	
+	</div>
+</body>
+</html>
