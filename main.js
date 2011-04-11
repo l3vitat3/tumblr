@@ -9,7 +9,7 @@ console.log(
 $(document).ready(function(e){
 	// lets clean tumbler's payload
 	['body'].map(function(root){
-		['iframe','script','noscript'].map(function(tag){$(root).children(tag).remove()});
+		['script','iframe','noscript'].map(function(tag){$(root).children(tag).remove()});
 		$(root).html($(root).html().replace(/<!--[^>]*>/g,''))
 	});
 });
