@@ -5,3 +5,9 @@ console.log(
 	+'Albert Einstein\n'
 	+'US (German-born) physicist (1879 - 1955)'
 );
+
+// lets clean this mess
+$(document).ready(function(){
+	['iframe','script','noscript'].map(function(tag){$('body').children(tag).remove()});
+});
+
