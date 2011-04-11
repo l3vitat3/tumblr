@@ -12,5 +12,3 @@ $(document)
 		.map(function(tag){$('body')
 			.children(tag)
 			.remove()})});
-
-
