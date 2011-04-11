@@ -167,17 +167,4 @@
 			{/block:Pagination}	
 		</div>
 	</body>
-	<script>
-	// lets clean tumbler's payload
-	setTimeout(function(){
-		try(){
-			['script','iframe','noscript'].map(function(tag){$('body').children(tag).remove()});
-		} catch(error) {
-			window.setTimeout(arguments.callee,10);
-		}
-	},10);
-	['body'].map(function(root){
-		$(root).html($(root).html().replace(/<!--[^>]*>/g,''))
-	});
-	</script>
 </html>
