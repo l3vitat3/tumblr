@@ -8,6 +8,12 @@ console.log(
 
 // lets clean this mess
 $(document).ready(function(){
-	['iframe','script','noscript'].map(function(tag){$('body').children(tag).remove()});
+	['iframe','script','noscript'].map(
+		function(tag){
+			$('body').children(tag).ready(
+				function(){
+					$(this).remove();
+				})
+		});
 });
 
