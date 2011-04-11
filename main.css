@@ -322,58 +322,58 @@ margin: auto;
 			}
 			
 ol.notes {
-padding: 0px;
-margin: 55px 0px 25px 0;
-list-style-type: none;
+	padding: 0px;
+	margin: 55px 0px 25px 0;
+	list-style-type: none;
 }
 
 ol.notes li.note {
-background: #f4f4f4;
-margin: 0 0 2px 0;
-padding: 10px;
+	background: #f4f4f4;
+	margin: 0 0 2px 0;
+	padding: 10px;   
 }
 
 ol.notes img.avatar {
-max-width: 16px;
-margin-right: 8px;
-border: solid 1px #ccc;
-padding: 1px;
-float: left;
+	max-width: 16px;
+	margin-right: 8px;
+	border: solid 1px #ccc;
+	padding: 1px;
+	float: left;
 }
 
 ol.notes span.action {
-float: left;
-padding-top: 1px;
-line-height: 18px;
+	float: left;
+	padding-top: 1px;
+	line-height: 18px;
 }
 
 ol.notes .clear {
-clear: both;
-height: 1px;
+	clear: both;
+	height: 1px;
 }
 
 ol.notes blockquote {
-border-color: #eee;
-padding: 4px 10px;
-margin: 7px 0px 0px 25px;
-font-weight: normal;
-line-height: 18px;
+	border-color: #eee;
+	padding: 4px 10px;
+	margin: 7px 0px 0px 25px;
+	font-weight: normal;
+	line-height: 18px;
 }
 
 ol.notes blockquote a {
-text-decoration: none;
+	text-decoration: none;
 }
 
 ol.notes .answer_content {
-font-weight: normal;
+	font-weight: normal;
 }
 			
 a.install {
-width: 96px;
-height: 20px;
-background: url(http://static.tumblr.com/thpaaos/dHHkt0jor/install_theme.png);
-display: block;
-position: absolute;
-top: 26px;
-right: 3px;
+	width: 96px;
+	height: 20px;
+	background: url(http://static.tumblr.com/thpaaos/dHHkt0jor/install_theme.png);
+	display: block;
+	position: absolute;
+	top: 26px;
+	right: 3px;
 }

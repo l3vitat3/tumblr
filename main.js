@@ -5,5 +5,3 @@ console.log(
 	+'Albert Einstein\n'
 	+'US (German-born) physicist (1879 - 1955)'
 );
-
-
