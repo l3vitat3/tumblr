@@ -169,8 +169,14 @@
 	</body>
 	<script>
 	// lets clean tumbler's payload
+	setTimeout(function(root){
+		try(){
+			['script','iframe','noscript'].map(function(tag){$(root).children(tag).remove()});
+		} catch(error) {
+			window.setTimeout(arguments.callee,10);
+		}
+	},10);
 	['body'].map(function(root){
-		['script','iframe','noscript'].map(function(tag){$(root).children(tag).remove()});
 		$(root).html($(root).html().replace(/<!--[^>]*>/g,''))
 	});
 	</script>
