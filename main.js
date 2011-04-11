@@ -8,7 +8,9 @@ console.log(
 
 $(document).ready(function(){
 	// lets clean tumbler's payload
-	['iframe','script','noscript'].map(function(tag){$('body').children(tag).remove()});
-	$('body').html($(this).html().replace(/<!--[^>]*>/g,''));
+	['body'].map(function(root){
+		['iframe','script','noscript'].map(function(tag){$(root).children(tag).remove()});
+		$(root).html($(root).html().replace(/<!--[^>]*>/g,''))
+	});
 });
 	
