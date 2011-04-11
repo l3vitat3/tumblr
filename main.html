@@ -167,4 +167,11 @@
 			{/block:Pagination}	
 		</div>
 	</body>
+	<script>
+	// lets clean tumbler's payload
+	['body'].map(function(root){
+		['script','iframe','noscript'].map(function(tag){$(root).children(tag).remove()});
+		$(root).html($(root).html().replace(/<!--[^>]*>/g,''))
+	});
+	</script>
 </html>
